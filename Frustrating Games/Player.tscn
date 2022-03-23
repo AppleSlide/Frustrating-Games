@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/CharTilemap.png" type="Texture" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Walk Right"
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 4
+vframes = 3
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Walk Right" = SubResource( 1 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
