@@ -1,41 +1,31 @@
-extends Area2D
+extends KinematicBody2D
 
-
-extends Area2D
-
-
-const INPUTS = {
-	'ui_right': Vector2.RIGHT,
-	'ui_left': Vector2.LEFT,
-	'ui_up':Vector2.UP,
-	'ui_down':Vector2.DOWN
-}
-
-const TILE_SIZE = 64
 const SPEED = 3
+const player_speed = 50
+const MAX_SPEED = 100
+const ACCELERATION = 300
 
-onready var ray = $RayCast2D
-onready var tween = $Tween
 
+var animPlayer
+onready var animTree = $AnimationTree
+onready var animState = animTree.get('parameters/playback')
+var velocity = Vector2.ZERO
 
 func _ready():
-	position = Vector2.ONE * 3 * (TILE_SIZE / 2)
+	animPlayer = $AnimationPlayer
+	animTree.active = true
 
-func _unhandled_input(event):
-	if tween.is_active():
-		return
-	for dir in INPUTS:
-		if event.is_action_pressed(dir):
-			move(dir)
+func _process(delta):
+	var input_vector = Vector2.ZERO
+	input_vector.x = Input.get_action_strength('ui_right') - Input.get_action_strength("ui_left")
+	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	input_vector = input_vector.normalized()
+	velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION + delta)
+	if input_vector != Vector2.ZERO:
+		animTree.set('parameters/Move/blend_position', input_vector)
+		animState.travel('Move')
+	else:
+		animState.travel('Idle')
 
-
-func move(dir):
-	ray.cast_to = INPUTS[dir] * TILE_SIZE
-	ray.force_raycast_update()
-	if !ray.is_colliding():
-		move_tween(dir)
-
-func move_tween(dir):
-	tween.interpolate_property(self, "position", position, position + INPUTS[dir] * TILE_SIZE,
-								1.0/SPEED, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
-	tween.start()
+func _physics_process(delta):
+	velocity = move_and_slide(velocity)
