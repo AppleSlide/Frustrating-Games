@@ -2,8 +2,9 @@ extends KinematicBody2D
 
 const SPEED = 3
 const player_speed = 50
-const MAX_SPEED = 100
+const MAX_SPEED = 200
 const ACCELERATION = 300
+const jump = -300
 
 
 var animPlayer
@@ -26,6 +27,18 @@ func _process(delta):
 		animState.travel('Move')
 	else:
 		animState.travel('Idle')
+	
+	if Input.is_action_just_pressed("jump"):
+		ghost()
 
 func _physics_process(delta):
 	velocity = move_and_slide(velocity)
+
+func ghost():
+	$GhostTimer.start()
+	set_collision_mask_bit(2, false)
+
+
+func _on_GhostTimer_timeout():
+	set_collision_mask_bit(2, true)
+	

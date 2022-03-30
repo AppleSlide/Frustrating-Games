@@ -154,3 +154,9 @@ parameters/Move/blend_position = Vector2( -0.0031696, 0 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 20, 21 )
 shape = SubResource( 5 )
+
+[node name="GhostTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="GhostTimer" to="." method="_on_GhostTimer_timeout"]
