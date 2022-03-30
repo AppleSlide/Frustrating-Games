@@ -1,11 +1,10 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/CharTilemap.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=9]
 resource_name = "Idle"
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -16,6 +15,21 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=18]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
 "values": [ 1 ]
 }
 
@@ -51,7 +65,7 @@ tracks/0/keys = {
 "values": [ 4, 0, 8, 0 ]
 }
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=19]
 resource_name = "Walk Right"
 loop = true
 tracks/0/type = "value"
@@ -61,7 +75,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.5, 0.7 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 7, 3, 11, 3 ]
@@ -107,6 +121,7 @@ blend_point_2/node = SubResource( 13 )
 blend_point_2/pos = Vector2( 0, -1 )
 blend_point_3/node = SubResource( 14 )
 blend_point_3/pos = Vector2( -1, 0 )
+blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=16]
 
@@ -139,9 +154,10 @@ frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Idle = SubResource( 9 )
+anims/RESET = SubResource( 18 )
 "anims/Walk Down" = SubResource( 2 )
 "anims/Walk Left" = SubResource( 3 )
-"anims/Walk Right" = SubResource( 1 )
+"anims/Walk Right" = SubResource( 19 )
 "anims/Walk Up" = SubResource( 4 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
@@ -149,7 +165,7 @@ tree_root = SubResource( 7 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 8 )
-parameters/Move/blend_position = Vector2( -0.0031696, 0 )
+parameters/Move/blend_position = Vector2( 0, 0.00862074 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 20, 21 )
