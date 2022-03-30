@@ -36,9 +36,9 @@ func _physics_process(delta):
 
 func ghost():
 	$GhostTimer.start()
-	set_collision_mask_bit(2, false)
+	set_collision_mask_bit(1, false)
 
 
 func _on_GhostTimer_timeout():
-	set_collision_mask_bit(2, true)
-	
+	set_collision_mask_bit(1, true)
+
