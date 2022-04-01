@@ -7,6 +7,7 @@ const ACCELERATION = 300
 const jump = -300
 
 
+
 var animPlayer
 onready var animTree = $AnimationTree
 onready var animState = animTree.get('parameters/playback')
@@ -28,8 +29,9 @@ func _process(delta):
 	else:
 		animState.travel('Idle')
 	
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") and $GhostCooldown.is_stopped():
 		ghost()
+		$GhostCooldown.start()
 
 func _physics_process(delta):
 	velocity = move_and_slide(velocity)
@@ -42,3 +44,7 @@ func ghost():
 func _on_GhostTimer_timeout():
 	set_collision_mask_bit(1, true)
 
+
+
+func _on_DeathArea1_body_entered(body):
+	queue_free()
