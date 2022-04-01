@@ -6,7 +6,7 @@ const MAX_SPEED = 200
 const ACCELERATION = 300
 const jump = -300
 
-signal dead
+#signal dead
 #signal respawn
 
 
@@ -51,7 +51,8 @@ func _on_GhostTimer_timeout():
 
 
 
-#func _on_DeathArea1_body_entered(body):
+func _on_DeathArea1_body_entered(body):
+	pass
 	#body.hide()
 	#emit_signal('dead')
 	#$CollisionShape2D.call_deferred("disabled", true)
