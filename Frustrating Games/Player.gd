@@ -51,12 +51,12 @@ func _on_GhostTimer_timeout():
 
 
 
-func _on_DeathArea1_body_entered(body):
-	body.hide()
-	emit_signal('dead')
-	#$CollisionShape2D.set_deferred("disabled", true)
+#func _on_DeathArea1_body_entered(body):
+	#body.hide()
+	#emit_signal('dead')
+	#$CollisionShape2D.call_deferred("disabled", true)
 
-func spawn(pos):
-	position = pos
-	show()
-	$CollisionShape2D.disabled = false
+#func spawn(pos):
+	#position = pos
+	#show()
+	#$CollisionShape2D.disabled = false

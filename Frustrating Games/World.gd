@@ -17,13 +17,13 @@ func _ready():
 
 
 func _on_DeathArea1_body_entered(body):
-	$KinematicBody2D.hide()
-	
+	#$KinematicBody2D.hide()
+	$KinematicBody2D.position = $SpawnPoint.position
 
-func respawn():
-	$KinematicBody2D.spawn($SpawnPoint.position)
+#func respawn():
+	#$KinematicBody2D.spawn($SpawnPoint.position)
 
 
-func _on_KinematicBody2D_dead():
-	respawn()
+#func _on_KinematicBody2D_dead():
+	#respawn()
 
