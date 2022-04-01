@@ -332,7 +332,7 @@ extents = Vector2( 32, 32 )
 extents = Vector2( 16, 16 )
 
 [sub_resource type="RectangleShape2D" id=54]
-extents = Vector2( 65, 16 )
+extents = Vector2( 64, 16 )
 
 [node name="World" type="Node2D"]
 script = ExtResource( 2 )
@@ -348,7 +348,7 @@ tile_data = PoolIntArray( 65537, 0, 0, 65538, 0, 1, 65539, 0, 1, 65540, 0, 2, 13
 
 [node name="KinematicBody2D" parent="." instance=ExtResource( 1 )]
 position = Vector2( 75, 104 )
-collision_mask = 3
+collision_mask = 7
 
 [node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
 current = true
@@ -369,12 +369,17 @@ shape = SubResource( 50 )
 position = Vector2( 688, 304 )
 shape = SubResource( 50 )
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-gravity_scale = 0.0
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 832, 240 )
 shape = SubResource( 54 )
 
+[node name="SpawnPoint" type="Position2D" parent="."]
+position = Vector2( 75, 104 )
+
+[connection signal="dead" from="KinematicBody2D" to="." method="_on_KinematicBody2D_dead"]
 [connection signal="body_entered" from="DeathArea1" to="." method="_on_DeathArea1_body_entered"]
 [connection signal="body_entered" from="DeathArea1" to="KinematicBody2D" method="_on_DeathArea1_body_entered"]
