@@ -15,3 +15,9 @@ func update_deathCount(count):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+func update_cooldown(down):
+	$CooldownLabel.text = str(down)
+	
+func update_ghostCheck():
+	$GhostCheck.text = str("Wait")

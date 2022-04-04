@@ -411,4 +411,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="CooldownTimer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="DeathArea1" to="." method="_on_DeathArea1_body_entered"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_CooldownTimer_timeout"]

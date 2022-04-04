@@ -1,6 +1,7 @@
 extends Node2D
 
 var deaths = 0
+var cooldown = 5
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -9,7 +10,7 @@ var deaths = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,7 +18,7 @@ func _ready():
 #	pass
 
 
-func _on_DeathArea1_body_entered(body):
+func _on_DeathArea1_body_entered(_body):
 	#$KinematicBody2D.hide()
 	$KinematicBody2D.position = $SpawnPoint.position
 	deaths += 1
@@ -30,3 +31,17 @@ func _on_DeathArea1_body_entered(body):
 #func _on_KinematicBody2D_dead():
 	#respawn()
 
+
+func _on_CooldownTimer_timeout():
+	cooldown -= 1
+	$HUD.update_cooldown(cooldown)
+	if cooldown == 0:
+		$CooldownTimer.stop()
+		cooldown = 5
+		$HUD.update_cooldown(cooldown)
+		$HUD/GhostCheck.text = str("Ready")
+
+func _process(_delta):
+	if $KinematicBody2D/GhostTimer.time_left > 0:
+		$CooldownTimer.start()
+		$HUD.update_ghostCheck()

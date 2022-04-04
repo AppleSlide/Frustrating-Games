@@ -34,6 +34,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("jump") and $GhostCooldown.is_stopped():
 		ghost()
 		$GhostCooldown.start()
+		
 	
 	#if Input.is_key_pressed(KEY_R):
 		#emit_signal('respawn')
@@ -63,3 +64,4 @@ func _on_DeathArea1_body_entered(body):
 	#position = pos
 	#show()
 	#$CollisionShape2D.disabled = false
+

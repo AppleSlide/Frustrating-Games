@@ -27,3 +27,34 @@ text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CooldownLabel" type="Label" parent="."]
+margin_left = 1011.0
+margin_right = 1051.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 1 )
+text = "5"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GhostLabel" type="Label" parent="."]
+margin_left = 953.0
+margin_right = 1019.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 1 )
+text = "Ghost: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GhostCheck" type="Label" parent="."]
+margin_left = 968.0
+margin_top = 15.0
+margin_right = 1024.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 1 )
+text = "READY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
