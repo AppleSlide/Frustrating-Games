@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://DeathBlock.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Tiles/tile_0445.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1.5, 1.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 7, 7 )
+
+[node name="DeathBlock" type="KinematicBody2D"]
+position = Vector2( 85, 37 )
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="WallDetector" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 8 )
+collision_mask = 6
+
+[node name="WallDetectorH" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 8, 0 )
+collision_mask = 6
+
+[node name="Deathbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deathbox"]
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="Deathbox" to="." method="_on_Deathbox_body_entered"]

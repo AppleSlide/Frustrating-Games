@@ -19,7 +19,6 @@ func _ready():
 
 
 func _on_DeathArea1_body_entered(_body):
-	#$KinematicBody2D.hide()
 	$KinematicBody2D.position = $SpawnPoint.position
 	deaths += 1
 	$HUD.update_deathCount(deaths)
@@ -45,3 +44,9 @@ func _process(_delta):
 	if $KinematicBody2D/GhostTimer.time_left > 0:
 		$CooldownTimer.start()
 		$HUD.update_ghostCheck()
+
+
+func _on_DeathBlock_entered():
+	$KinematicBody2D.position = $SpawnPoint.position
+	deaths += 1
+	$HUD.update_deathCount(deaths)

@@ -6,8 +6,7 @@ const MAX_SPEED = 200
 const ACCELERATION = 300
 const jump = -300
 
-#signal dead
-#signal respawn
+signal hit
 
 
 var animPlayer
@@ -36,8 +35,6 @@ func _process(delta):
 		$GhostCooldown.start()
 		
 	
-	#if Input.is_key_pressed(KEY_R):
-		#emit_signal('respawn')
 
 func _physics_process(delta):
 	velocity = move_and_slide(velocity)
@@ -52,16 +49,4 @@ func _on_GhostTimer_timeout():
 	set_collision_mask_bit(1, true)
 	modulate.a = 1
 
-
-
-func _on_DeathArea1_body_entered(body):
-	pass
-	#body.hide()
-	#emit_signal('dead')
-	#$CollisionShape2D.call_deferred("disabled", true)
-
-#func spawn(pos):
-	#position = pos
-	#show()
-	#$CollisionShape2D.disabled = false
 
