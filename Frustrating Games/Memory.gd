@@ -9,18 +9,18 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$TileMap/TileMap3.hide()
+	$MemoryMap/TileMap3.hide()
 	yield(get_tree().create_timer(3), "timeout")
 	showPath()
 	
 	
 
 func showPath():
-	$TileMap/TileMap3.show()
+	$MemoryMap/TileMap3.show()
 	yield(get_tree().create_timer(10), "timeout")
-	$TileMap/TileMap3.hide()
-	$TileMap/TileMap3.set_collision_mask_bit(1, false)
-	$TileMap/TileMap3.set_collision_layer_bit(1, false)
+	$MemoryMap/TileMap3.hide()
+	$MemoryMap/TileMap3.set_collision_mask_bit(1, false)
+	$MemoryMap/TileMap3.set_collision_layer_bit(1, false)
 
 
 
