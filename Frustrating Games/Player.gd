@@ -4,6 +4,8 @@ const SPEED = 3
 const player_speed = 50
 const MAX_SPEED = 100
 const ACCELERATION = 300
+const startx = 500
+const starty = 0
 
 
 var animPlayer
@@ -14,6 +16,8 @@ var velocity = Vector2.ZERO
 func _ready():
 	animPlayer = $AnimationPlayer
 	animTree.active = true
+	
+	
 
 func _process(delta):
 	var input_vector = Vector2.ZERO
@@ -29,3 +33,4 @@ func _process(delta):
 
 func _physics_process(delta):
 	velocity = move_and_slide(velocity)
+	
