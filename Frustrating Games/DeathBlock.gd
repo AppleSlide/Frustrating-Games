@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export var vertical = true
 export var direction = 1
-var speed = 50
+export var speed = 50
 var velocity = Vector2()
 signal entered
 

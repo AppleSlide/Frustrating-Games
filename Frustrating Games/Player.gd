@@ -6,8 +6,6 @@ const MAX_SPEED = 200
 const ACCELERATION = 300
 const jump = -300
 
-signal hit
-
 
 var animPlayer
 onready var animTree = $AnimationTree
@@ -36,7 +34,7 @@ func _process(delta):
 		
 	
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	velocity = move_and_slide(velocity)
 
 func ghost():
