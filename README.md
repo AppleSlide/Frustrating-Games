@@ -2,7 +2,8 @@
 Studio HGW's creative game project
 
 ## Game Mechanics
-* Double Jumping
+* ~~Double Jumping~~
+* Ghosting
 * Top-Down Platforming
 * Auto-scrolling
 
