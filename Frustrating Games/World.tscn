@@ -233,7 +233,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 0 )
 0/z_index = 0
 
 [sub_resource type="RectangleShape2D" id=49]
-extents = Vector2( 32, 32 )
+extents = Vector2( 32, 31.5 )
 
 [sub_resource type="RectangleShape2D" id=50]
 extents = Vector2( 16, 16 )
@@ -272,7 +272,7 @@ smoothing_enabled = true
 [node name="DeathArea1" type="Area2D" parent="."]
 
 [node name="DeathBox1" type="CollisionShape2D" parent="DeathArea1"]
-position = Vector2( 448, 256 )
+position = Vector2( 448, 255.5 )
 shape = SubResource( 49 )
 
 [node name="DeathBox2" type="CollisionShape2D" parent="DeathArea1"]

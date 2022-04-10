@@ -28,8 +28,10 @@ func showPath():
 
 func _on_KillPlane1_body_entered(body):
 	$Player.position.x = 500
-	$Player.position.y = 0# Replace with function body.
+	$Player.position.y = 0
 
 
 func _on_WinPlane_body_entered(body):
-	print("You WON!") # Replace with function body.
+	print("You WON!") 
+	Global.goto_scene("res://Memory2.tscn")
+
