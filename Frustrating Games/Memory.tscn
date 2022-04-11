@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://MemoryMap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Memory.gd" type="Script" id=3]
+[ext_resource path="res://Assets/slkscr.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 232.25, 12.5 )
@@ -30,6 +31,22 @@ extents = Vector2( 61.5, 42.25 )
 
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 19.125, 14.5 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 236, 10 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 100
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 48
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 64
+font_data = ExtResource( 4 )
 
 [node name="Memory" type="Node2D"]
 script = ExtResource( 3 )
@@ -84,5 +101,49 @@ shape = SubResource( 9 )
 position = Vector2( 737, 203 )
 shape = SubResource( 9 )
 
+[node name="StartPlane" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartPlane"]
+position = Vector2( 528, 105 )
+shape = SubResource( 13 )
+
+[node name="Label" type="Label" parent="."]
+light_mask = 0
+margin_left = 315.0
+margin_top = 85.0
+margin_right = 757.0
+margin_bottom = 186.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "Level 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 292.0
+margin_top = 188.0
+margin_right = 780.0
+margin_bottom = 341.0
+custom_fonts/font = SubResource( 11 )
+text = "Path is shown for ten seconds"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 412.0
+margin_top = 309.0
+margin_right = 665.0
+margin_bottom = 408.0
+custom_fonts/font = SubResource( 12 )
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="body_entered" from="WinPlane" to="." method="_on_WinPlane_body_entered"]
 [connection signal="body_entered" from="KillPlane1" to="." method="_on_KillPlane1_body_entered"]
+[connection signal="body_entered" from="StartPlane" to="." method="_on_StartPlane_body_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
