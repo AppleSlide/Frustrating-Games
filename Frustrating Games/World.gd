@@ -7,29 +7,13 @@ var cooldown = 5
 # var a = 2
 # var b = "text"
 
-
-
-# Called when the node enters the scene tree for the first time.
-
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+func _ready():
+	$HUD/WinLabel.hide()
 
 func _on_DeathArea1_body_entered(_body):
 	$KinematicBody2D.position = $SpawnPoint.position
 	deaths += 1
 	$HUD.update_deathCount(deaths)
-
-#func respawn():
-	#$KinematicBody2D.spawn($SpawnPoint.position)
-
-
-#func _on_KinematicBody2D_dead():
-	#respawn()
-
 
 func _on_CooldownTimer_timeout():
 	cooldown -= 1
@@ -50,3 +34,7 @@ func _on_DeathBlock_entered():
 	$KinematicBody2D.position = $SpawnPoint.position
 	deaths += 1
 	$HUD.update_deathCount(deaths)
+
+
+func _on_WinArea_body_entered(_body):
+	$HUD/WinLabel.show()

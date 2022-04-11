@@ -58,3 +58,15 @@ text = "READY"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="WinLabel" type="Label" parent="."]
+margin_left = 113.0
+margin_top = 243.0
+margin_right = 278.0
+margin_bottom = 260.0
+rect_scale = Vector2( 5, 5 )
+custom_fonts/font = SubResource( 1 )
+text = "YOU WIN!!!!!!!!!!!!!!!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
