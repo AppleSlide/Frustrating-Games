@@ -3,6 +3,7 @@ extends Node2D
 var deaths = 0
 var cooldown = 5
 var countdown = 3
+var score = 50000
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -40,6 +41,7 @@ func _on_DeathBlock_entered():
 func _on_WinArea_body_entered(_body):
 	$HUD/WinLabel.show()
 	$LobbyTimer.start()
+	$ScoreTimer.stop()
 
 
 func _on_LobbyTimer_timeout():
@@ -48,7 +50,6 @@ func _on_LobbyTimer_timeout():
 
 func _on_HUD_pressed():
 	$StartTimer.start()
-	
 
 func _on_StartTimer_timeout():
 	countdown -= 1
@@ -57,3 +58,9 @@ func _on_StartTimer_timeout():
 		$StartTimer.stop()
 		$HUD/StartTime.hide()
 		$StartWall/CollisionShape2D.disabled = true
+		$ScoreTimer.start()
+		
+
+func _on_ScoreTimer_timeout():
+	score -= 150
+	$HUD.update_score(score)

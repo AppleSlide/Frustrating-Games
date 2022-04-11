@@ -24,6 +24,9 @@ func update_ghostCheck():
 
 func update_startTime(num):
 	$StartTime.text = str(num)
+	
+func update_score(scr):
+	$ScoreCount.text = str(scr)
 
 func _on_StartButton_pressed():
 	$StartButton.hide()
