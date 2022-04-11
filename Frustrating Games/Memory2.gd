@@ -12,8 +12,10 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$MemoryMap2/TileMap3.hide()
-	yield(get_tree().create_timer(3), "timeout")
-	showPath1()
+	#yield(get_tree().create_timer(5), "timeout")
+	#$Label.hide()
+	#$Label2.hide()
+	#showPath1()
 	
 	
 
@@ -45,3 +47,10 @@ func _on_WinPlane_body_entered(body):
 func _on_StartPlane_body_entered(body):
 	$Player.position.x = 500
 	$Player.position.y = 0
+
+
+func _on_Button_pressed():
+	$Button.hide()
+	$Label.hide()
+	$Label2.hide()
+	showPath1()
