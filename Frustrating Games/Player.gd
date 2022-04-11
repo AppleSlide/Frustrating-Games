@@ -4,7 +4,11 @@ const SPEED = 3
 const player_speed = 50
 const MAX_SPEED = 200
 const ACCELERATION = 300
+const startx = 500
+const starty = 0
+
 const jump = -300
+
 
 
 var animPlayer
@@ -15,6 +19,8 @@ var velocity = Vector2.ZERO
 func _ready():
 	animPlayer = $AnimationPlayer
 	animTree.active = true
+	
+	
 
 func _process(delta):
 	var input_vector = Vector2.ZERO
@@ -37,6 +43,9 @@ func _process(delta):
 func _physics_process(_delta):
 	velocity = move_and_slide(velocity)
 
+	
+
+
 func ghost():
 	$GhostTimer.start()
 	set_collision_mask_bit(1, false)
@@ -46,5 +55,6 @@ func ghost():
 func _on_GhostTimer_timeout():
 	set_collision_mask_bit(1, true)
 	modulate.a = 1
+
 
 

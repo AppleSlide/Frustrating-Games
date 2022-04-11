@@ -29,3 +29,15 @@ func _process(_delta):
 	if $KinematicBody2D/GhostTimer.time_left > 0:
 		$CooldownTimer.start()
 		$HUD.update_ghostCheck()
+
+
+func _on_TutorialTeleport_body_entered(_body):
+	$KinematicBody2D.position = $TutorialTeleport/TeleportPoint.position
+
+
+func _on_TutorialTeleport2_body_entered(_body):
+	$KinematicBody2D.position = $TutorialTeleport2/TeleportPoint.position
+
+
+func _on_TutorialExit_body_entered(_body):
+	$KinematicBody2D.position = $TutorialExit/TeleportPoint.position

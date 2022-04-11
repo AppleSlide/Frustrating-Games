@@ -11,8 +11,12 @@ config_version=4
 [application]
 
 config/name="Frustrating Games"
-run/main_scene="res://World.tscn"
+run/main_scene="res://Memory.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://Global.gd"
 
 [input]
 

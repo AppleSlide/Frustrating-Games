@@ -1,0 +1,134 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://MemoryMap2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Memory2.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 232.25, 12.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 86.625, 114 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 117, 41.625 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 143, 64 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 46.5, 16 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 17.5, 18.75 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 39, 50.75 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 18.75, 40.75 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 35.7813, 20.25 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 42.5, 40.25 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 82, 17.5 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 22, 18.5 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 24.5, 14.5 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 236, 10 )
+
+[node name="Memory2" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="MemoryMap2" parent="." instance=ExtResource( 2 )]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 491, 0 )
+
+[node name="WinPlane" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinPlane"]
+position = Vector2( 525.75, 543.5 )
+shape = SubResource( 1 )
+
+[node name="KillPlane1" type="Area2D" parent="."]
+position = Vector2( -183, 298 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillPlane1"]
+position = Vector2( 851.625, -80 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="KillPlane1"]
+position = Vector2( 591, -152.625 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="KillPlane1"]
+position = Vector2( 615, 159 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="KillPlane1"]
+position = Vector2( 659, 112 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="KillPlane1"]
+position = Vector2( 832, 62 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="KillPlane1"]
+position = Vector2( 900, 76.25 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="KillPlane1"]
+position = Vector2( 785.25, 182.75 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="KillPlane1"]
+position = Vector2( 638.875, 203 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="KillPlane1"]
+position = Vector2( 737, 203 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="KillPlane1"]
+position = Vector2( 816, 204 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="KillPlane1"]
+position = Vector2( 945, 205.25 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="KillPlane1"]
+position = Vector2( 568, -10.5 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="KillPlane1"]
+position = Vector2( 671, 13.5 )
+shape = SubResource( 11 )
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="KillPlane1"]
+position = Vector2( 686, -83 )
+shape = SubResource( 12 )
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="KillPlane1"]
+position = Vector2( 933.5, 159 )
+shape = SubResource( 13 )
+
+[node name="StartPlane" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartPlane"]
+position = Vector2( 528, 105 )
+shape = SubResource( 14 )
+
+[connection signal="body_entered" from="WinPlane" to="." method="_on_WinPlane_body_entered"]
+[connection signal="body_entered" from="KillPlane1" to="." method="_on_KillPlane1_body_entered"]
+[connection signal="body_entered" from="StartPlane" to="." method="_on_StartPlane_body_entered"]
