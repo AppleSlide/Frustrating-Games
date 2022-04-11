@@ -607,6 +607,7 @@ position = Vector2( 75, 104 )
 collision_mask = 15
 
 [node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
+current = true
 process_mode = 0
 limit_left = 0
 limit_right = 1025
@@ -872,11 +873,12 @@ wait_time = 10.0
 position = Vector2( 166, 128.5 )
 shape = SubResource( 125 )
 
-[node name="StartTimer" type="Timer" parent="."]
-
 [node name="ScoreTimer" type="Timer" parent="."]
 
+[node name="StartTimer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="DeathArea1" to="." method="_on_DeathArea1_body_entered"]
+[connection signal="pressed" from="HUD" to="." method="_on_HUD_pressed"]
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_CooldownTimer_timeout"]
 [connection signal="entered" from="DeathBlocks/DeathBlock" to="." method="_on_DeathBlock_entered"]
 [connection signal="entered" from="DeathBlocks/DeathBlock2" to="." method="_on_DeathBlock_entered"]
@@ -899,5 +901,5 @@ shape = SubResource( 125 )
 [connection signal="entered" from="DeathBlocks/DeathBlock19" to="." method="_on_DeathBlock_entered"]
 [connection signal="body_entered" from="WinArea" to="." method="_on_WinArea_body_entered"]
 [connection signal="timeout" from="LobbyTimer" to="." method="_on_LobbyTimer_timeout"]
-[connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
