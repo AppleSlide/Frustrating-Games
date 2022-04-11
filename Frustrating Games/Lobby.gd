@@ -3,7 +3,7 @@ extends Node2D
 var cooldown = 5
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$HUD/WinLabel.hide()
 
 func _process(delta):
 	if $KinematicBody2D/GhostTimer.time_left > 0:

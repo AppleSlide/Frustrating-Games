@@ -38,3 +38,8 @@ func _on_DeathBlock_entered():
 
 func _on_WinArea_body_entered(_body):
 	$HUD/WinLabel.show()
+	$LobbyTimer.start()
+
+
+func _on_LobbyTimer_timeout():
+	Global.goto_scene("res://Lobby.tscn")
