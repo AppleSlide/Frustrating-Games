@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-
+signal pressed
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -21,3 +21,10 @@ func update_cooldown(down):
 	
 func update_ghostCheck():
 	$GhostCheck.text = str("Wait")
+
+func update_startTime(num):
+	$StartTime.text = str(num)
+
+func _on_StartButton_pressed():
+	$StartButton.hide()
+	emit_signal("pressed")

@@ -2,6 +2,7 @@ extends Node2D
 
 var deaths = 0
 var cooldown = 5
+var countdown = 3
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -43,3 +44,16 @@ func _on_WinArea_body_entered(_body):
 
 func _on_LobbyTimer_timeout():
 	Global.goto_scene("res://Lobby.tscn")
+
+
+func _on_HUD_pressed():
+	$StartTimer.start()
+	
+
+func _on_StartTimer_timeout():
+	countdown -= 1
+	$HUD.update_startTime(countdown)
+	if countdown == 0:
+		$StartTimer.stop()
+		$HUD/StartTime.hide()
+		$StartWall/CollisionShape2D.disabled = true
