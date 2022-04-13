@@ -4,6 +4,8 @@ var cooldown = 5
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$HUD/WinLabel.hide()
+	$HUD/StartButton.hide()
+	$HUD/StartTime.hide()
 
 func _process(delta):
 	if $KinematicBody2D/GhostTimer.time_left > 0:
