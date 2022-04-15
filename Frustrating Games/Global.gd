@@ -1,6 +1,7 @@
 extends Node
 
 var current_scene = null
+var score = 50000
 
 func _ready():
 	var root = get_tree().get_root()

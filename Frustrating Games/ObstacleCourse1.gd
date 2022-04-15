@@ -3,7 +3,7 @@ extends Node2D
 var deaths = 0
 var cooldown = 5
 var countdown = 3
-var score = 50000
+var score = Global.score
 var deathScore = 0
 
 # Declare member variables here. Examples:
@@ -12,6 +12,7 @@ var deathScore = 0
 
 func _ready():
 	$HUD/WinLabel.hide()
+	$HUD.update_score(Global.score)
 
 func _on_DeathArea1_body_entered(_body):
 	$KinematicBody2D.position = $SpawnPoint.position
@@ -45,7 +46,8 @@ func _on_WinArea_body_entered(_body):
 	$ScoreTimer.stop()
 	deathScore = deaths * 100
 	score = score - deathScore
-	$HUD.update_score(score)
+	Global.score = score
+	$HUD.update_score(Global.score)
 
 
 func _on_LobbyTimer_timeout():

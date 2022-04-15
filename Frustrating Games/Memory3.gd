@@ -1,7 +1,7 @@
 extends Node2D
 
 
-
+var score = 0
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -12,6 +12,16 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$MemoryMap3/TileMap3.hide()
+	$HUD/DeathCount.hide()
+	$HUD/StartButton.hide()
+	$HUD/StartTime.hide()
+	$HUD/WinLabel.hide()
+	$HUD/DeathLabel.hide()
+	$HUD/GhostCheck.hide()
+	$HUD/GhostLabel.hide()
+	$HUD/CooldownLabel.hide()
+	$HUD.update_score(Global.score)
+	$ScoreBlock/CollisionShape2D.disabled = true
 	#yield(get_tree().create_timer(5), "timeout")
 	#$Label.hide()
 	#$Label2.hide()
@@ -32,19 +42,23 @@ func showPath2():
 
 
 
-func _on_KillPlane1_body_entered(body):
+func _on_KillPlane1_body_entered(_body):
 	$Player.position.x = 500
 	$Player.position.y = 0
 
 
-func _on_WinPlane_body_entered(body):
+func _on_WinPlane_body_entered(_body):
 	print("You WON!") 
-	Global.goto_scene("res://World.tscn")
+	$SwitchTimer.start()
+	score += 5000
+	Global.score += score
+	$HUD.update_score(Global.score)
+	$ScoreBlock/CollisionShape2D.disabled = false
 
 
 
 
-func _on_StartPlane_body_entered(body):
+func _on_StartPlane_body_entered(_body):
 	$Player.position.x = 500
 	$Player.position.y = 0
 
@@ -54,3 +68,7 @@ func _on_Button_pressed():
 	$Label.hide()
 	$Label2.hide()
 	showPath2()
+
+
+func _on_SwitchTimer_timeout():
+	Global.goto_scene("res://ObstacleCourse1.tscn")

@@ -6,6 +6,7 @@ func _ready():
 	$HUD/WinLabel.hide()
 	$HUD/StartButton.hide()
 	$HUD/StartTime.hide()
+	$HUD.update_score(Global.score)
 
 func _process(delta):
 	if $KinematicBody2D/GhostTimer.time_left > 0:
