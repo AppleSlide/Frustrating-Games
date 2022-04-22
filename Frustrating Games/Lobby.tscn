@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Tilemap/tilemap_packed.png" type="Texture" id=2]
@@ -307,6 +307,9 @@ extents = Vector2( 9.5, 85 )
 [sub_resource type="RectangleShape2D" id=67]
 extents = Vector2( 15.75, 83.5 )
 
+[sub_resource type="RectangleShape2D" id=68]
+extents = Vector2( 474.5, 56 )
+
 [node name="Lobby" type="Node2D"]
 script = ExtResource( 5 )
 
@@ -399,6 +402,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label" type="Label" parent="Control"]
+margin_left = 361.0
+margin_top = 494.0
+margin_right = 857.0
+margin_bottom = 511.0
+custom_fonts/font = SubResource( 1 )
+text = "Step here to start a new run."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 
 [node name="CooldownTimer" type="Timer" parent="."]
@@ -452,7 +466,7 @@ margin_top = -1698.0
 margin_right = 675.0
 margin_bottom = -1637.0
 custom_fonts/font = SubResource( 1 )
-text = "Game 1: Obstacle Course
+text = "Game 2: Obstacle Course
 Finish the course as fast as you can! THe less deaths and less time you get the higher your score will be!"
 autowrap = true
 __meta__ = {
@@ -465,7 +479,7 @@ margin_top = -1435.0
 margin_right = 583.0
 margin_bottom = -1374.0
 custom_fonts/font = SubResource( 1 )
-text = "Game 2: Memory Game
+text = "Game 1: Memory Game
 Memorize the path and finish to score points!"
 autowrap = true
 __meta__ = {
@@ -514,7 +528,18 @@ __meta__ = {
 position = Vector2( 756, -816 )
 scale = Vector2( 2.3, 2.3 )
 
+[node name="GamesStart" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GamesStart"]
+position = Vector2( 510, 513 )
+shape = SubResource( 68 )
+
+[node name="GameStartTimer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="TutorialTeleport1" to="." method="_on_TutorialTeleport1_body_entered"]
 [connection signal="body_entered" from="TutorialTeleport2" to="." method="_on_TutorialTeleport2_body_entered"]
 [connection signal="body_entered" from="TutorialExit" to="." method="_on_TutorialExit_body_entered"]
+[connection signal="pressed" from="HUD" to="." method="_on_HUD_pressed"]
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_CooldownTimer_timeout"]
+[connection signal="body_entered" from="GamesStart" to="." method="_on_GamesStart_body_entered"]
+[connection signal="timeout" from="GameStartTimer" to="." method="_on_GameStartTimer_timeout"]
