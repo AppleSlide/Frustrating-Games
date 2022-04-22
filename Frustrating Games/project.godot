@@ -11,12 +11,18 @@ config_version=4
 [application]
 
 config/name="Frustrating Games"
-run/main_scene="res://Memory3.tscn"
+run/main_scene="res://Memory.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Global="*res://Global.gd"
+
+[display]
+
+window/size/width=1008
+window/size/height=624
+window/stretch/mode="viewport"
 
 [input]
 

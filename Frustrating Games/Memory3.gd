@@ -49,6 +49,8 @@ func _on_KillPlane1_body_entered(_body):
 
 func _on_WinPlane_body_entered(_body):
 	print("You WON!") 
+	$Label2.text = "THAT WASN'T TOO BAD. NEXT LEVEL INCOMING"
+	$Label2.show()
 	$SwitchTimer.start()
 	score += 5000
 	Global.score += score
