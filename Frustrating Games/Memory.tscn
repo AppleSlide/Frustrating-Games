@@ -52,14 +52,6 @@ font_data = ExtResource( 4 )
 [node name="Memory" type="Node2D"]
 script = ExtResource( 3 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-limit_left = 0
-limit_top = 0
-limit_right = 1008
-limit_bottom = 624
-editor_draw_limits = true
-
 [node name="MemoryMap" parent="." instance=ExtResource( 2 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
