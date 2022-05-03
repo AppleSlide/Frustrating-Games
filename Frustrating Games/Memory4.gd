@@ -11,7 +11,7 @@ var score = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$MemoryMap3/TileMap3.hide()
+	$MemoryMap4/TileMap3.hide()
 	$HUD/DeathCount.hide()
 	$HUD/StartButton.hide()
 	$HUD/StartTime.hide()
@@ -30,15 +30,15 @@ func _ready():
 	
 
 func showPath2():
-	$MemoryMap3/TileMap3.show()
+	$MemoryMap4/TileMap3.show()
 	yield(get_tree().create_timer(10), "timeout")
-	$MemoryMap3/TileMap3.hide()
+	$MemoryMap4/TileMap3.hide()
 	$StartPlane/CollisionShape2D.disabled = true
 	$StartPlane/CollisionShape2D.disabled = true
-	$MemoryMap3/TileMap3.set_collision_mask_bit(2, false)
-	$MemoryMap3/TileMap3.set_collision_layer_bit(2, false)
-	$MemoryMap3/TileMap3.set_collision_mask_bit(1, false)
-	$MemoryMap3/TileMap3.set_collision_layer_bit(1, false)
+	$MemoryMap4/TileMap3.set_collision_mask_bit(2, false)
+	$MemoryMap4/TileMap3.set_collision_layer_bit(2, false)
+	$MemoryMap4/TileMap3.set_collision_mask_bit(1, false)
+	$MemoryMap4/TileMap3.set_collision_layer_bit(1, false)
 
 
 
@@ -73,4 +73,4 @@ func _on_Button_pressed():
 
 
 func _on_SwitchTimer_timeout():
-	Global.goto_scene("res://Memory4.tscn")
+	Global.goto_scene("res://ObstacleCourse1.tscn")
