@@ -55,7 +55,7 @@ func _on_WinPlane_body_entered(_body):
 	score += 5000
 	Global.score += score
 	$HUD.update_score(Global.score)
-	$HUD/WinLabel.show()
+	#$HUD/WinLabel.show()
 	$ScoreBlock/CollisionShape2D.disabled = false
 
 
