@@ -10,24 +10,14 @@ var deathScore = 0
 # var a = 2
 # var b = "text"
 
+
+# Called when the node enters the scene tree for the first time.
 func _ready():
 	$HUD/WinLabel.hide()
 	$HUD.update_score(Global.score)
 
-func _on_DeathArea1_body_entered(_body):
-	$KinematicBody2D.position = $SpawnPoint.position
-	deaths += 1
-	$HUD.update_deathCount(deaths)
 
-func _on_CooldownTimer_timeout():
-	cooldown -= 1
-	$HUD.update_cooldown(cooldown)
-	if cooldown == 0:
-		$CooldownTimer.stop()
-		cooldown = 5
-		$HUD.update_cooldown(cooldown)
-		$HUD/GhostCheck.text = str("Ready")
-
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if $KinematicBody2D/GhostTimer.time_left > 0:
 		$CooldownTimer.start()
@@ -40,23 +30,24 @@ func _on_DeathBlock_entered():
 	$HUD.update_deathCount(deaths)
 
 
-func _on_WinArea_body_entered(_body):
-	$HUD/WinLabel.show()
-	$LobbyTimer.start()
-	$ScoreTimer.stop()
-	deathScore = deaths * 100
-	score = score - deathScore
-	Global.score = score
-	$HUD.update_score(Global.score)
+func _on_CooldownTimer_timeout():
+	cooldown -= 1
+	$HUD.update_cooldown(cooldown)
+	if cooldown == 0:
+		$CooldownTimer.stop()
+		cooldown = 5
+		$HUD.update_cooldown(cooldown)
+		$HUD/GhostCheck.text = str("Ready")
 
 
-func _on_LobbyTimer_timeout():
-	Global.goto_scene("res://ObstacleCourse2.tscn")
+func _on_DeathArea1_body_entered(body):
+	$KinematicBody2D.position = $SpawnPoint.position
+	deaths += 1
+	$HUD.update_deathCount(deaths)
 
 
 func _on_HUD_pressed():
 	$StartTimer.start()
-	
 
 
 func _on_ScoreTimer_timeout():
@@ -72,3 +63,7 @@ func _on_StartTimer_timeout():
 		$HUD/StartTime.hide()
 		$StartWall/CollisionShape2D.disabled = true
 		$ScoreTimer.start()
+
+
+func _on_LobbyTimer_timeout():
+	Global.goto_scene("res://Lobby.tscn")
