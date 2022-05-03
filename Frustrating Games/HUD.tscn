@@ -29,9 +29,10 @@ __meta__ = {
 }
 
 [node name="CooldownLabel" type="Label" parent="."]
-margin_left = 1011.0
-margin_right = 1051.0
-margin_bottom = 17.0
+margin_left = 987.0
+margin_top = -1.0
+margin_right = 1027.0
+margin_bottom = 16.0
 custom_fonts/font = SubResource( 1 )
 text = "5"
 __meta__ = {
@@ -39,9 +40,10 @@ __meta__ = {
 }
 
 [node name="GhostLabel" type="Label" parent="."]
-margin_left = 953.0
-margin_right = 1019.0
-margin_bottom = 17.0
+margin_left = 930.0
+margin_top = -1.0
+margin_right = 996.0
+margin_bottom = 16.0
 custom_fonts/font = SubResource( 1 )
 text = "Ghost: "
 __meta__ = {
@@ -49,10 +51,10 @@ __meta__ = {
 }
 
 [node name="GhostCheck" type="Label" parent="."]
-margin_left = 968.0
-margin_top = 15.0
-margin_right = 1024.0
-margin_bottom = 32.0
+margin_left = 938.0
+margin_top = 12.0
+margin_right = 994.0
+margin_bottom = 29.0
 custom_fonts/font = SubResource( 1 )
 text = "READY"
 __meta__ = {
