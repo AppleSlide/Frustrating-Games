@@ -1,7 +1,7 @@
 extends Node2D
 
 
-
+var score = 0
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -12,6 +12,15 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$MemoryMap2/TileMap3.hide()
+	$HUD/DeathCount.hide()
+	$HUD/StartButton.hide()
+	$HUD/StartTime.hide()
+	$HUD/WinLabel.hide()
+	$HUD/DeathLabel.hide()
+	$HUD/GhostCheck.hide()
+	$HUD/GhostLabel.hide()
+	$HUD/CooldownLabel.hide()
+	$HUD.update_score(Global.score)
 	#yield(get_tree().create_timer(5), "timeout")
 	#$Label.hide()
 	#$Label2.hide()
@@ -39,7 +48,12 @@ func _on_KillPlane1_body_entered(body):
 
 func _on_WinPlane_body_entered(body):
 	print("You WON!") 
-	Global.goto_scene("res://Memory3.tscn")
+	$SwitchTimer.start()
+	score += 5000
+	Global.score += score
+	$HUD.update_score(Global.score)
+	$HUD/WinLabel.show()
+	
 
 
 
@@ -54,3 +68,7 @@ func _on_Button_pressed():
 	$Label.hide()
 	$Label2.hide()
 	showPath1()
+
+
+func _on_SwitchTimer_timeout():
+	Global.goto_scene("res://Memory3.tscn")
