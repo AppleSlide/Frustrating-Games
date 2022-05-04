@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Science Fiction Sci-Fi Electronic Power Up37.wav-0cb4f6bc2325349b455e10e083ec08c4.sample"
+
+[deps]
+
+source_file="res://Assets/Science Fiction Sci-Fi Electronic Power Up37.wav"
+dest_files=[ "res://.import/Science Fiction Sci-Fi Electronic Power Up37.wav-0cb4f6bc2325349b455e10e083ec08c4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

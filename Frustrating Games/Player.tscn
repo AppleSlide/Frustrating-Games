@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/CharTilemap.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Cartoon Weird Noise Short Mouth Popping 02.wav" type="AudioStream" id=3]
 
 [sub_resource type="Animation" id=9]
 resource_name = "Idle"
@@ -178,5 +179,8 @@ one_shot = true
 [node name="GhostCooldown" type="Timer" parent="."]
 wait_time = 7.0
 one_shot = true
+
+[node name="GhostSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
 
 [connection signal="timeout" from="GhostTimer" to="." method="_on_GhostTimer_timeout"]

@@ -18,6 +18,7 @@ func _on_DeathArea1_body_entered(_body):
 	$KinematicBody2D.position = $SpawnPoint.position
 	deaths += 1
 	$HUD.update_deathCount(deaths)
+	$DeathSound.play()
 
 func _on_CooldownTimer_timeout():
 	cooldown -= 1
@@ -27,6 +28,8 @@ func _on_CooldownTimer_timeout():
 		cooldown = 5
 		$HUD.update_cooldown(cooldown)
 		$HUD/GhostCheck.text = str("Ready")
+		$ReadySound1.play()
+		$ReadySound2.play()
 
 func _process(_delta):
 	if $KinematicBody2D/GhostTimer.time_left > 0:
@@ -38,6 +41,7 @@ func _on_DeathBlock_entered():
 	$KinematicBody2D.position = $SpawnPoint.position
 	deaths += 1
 	$HUD.update_deathCount(deaths)
+	$DeathSound.play()
 
 
 func _on_WinArea_body_entered(_body):
@@ -48,6 +52,7 @@ func _on_WinArea_body_entered(_body):
 	score = score - deathScore
 	Global.score = score
 	$HUD.update_score(Global.score)
+	$VictorySound.play()
 
 
 func _on_LobbyTimer_timeout():

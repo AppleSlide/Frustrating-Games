@@ -56,6 +56,7 @@ func _on_WinPlane_body_entered(_body):
 	Global.score += score
 	$HUD.update_score(Global.score)
 	$ScoreBlock/CollisionShape2D.disabled = false
+	$VictorySound.play()
 
 
 

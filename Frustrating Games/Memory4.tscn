@@ -1,10 +1,11 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Memory4.gd" type="Script" id=1]
 [ext_resource path="res://Assets/slkscr.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://MemoryMap4.tscn" type="PackedScene" id=4]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Cartoon Loud Voice Wah Hoo 01.wav" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 236, 10 )
@@ -200,6 +201,9 @@ wait_time = 5.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreBlock"]
 position = Vector2( 609, 509 )
 shape = SubResource( 21 )
+
+[node name="VictorySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
 
 [connection signal="body_entered" from="StartPlane" to="." method="_on_StartPlane_body_entered"]
 [connection signal="body_entered" from="KillPlane1" to="." method="_on_KillPlane1_body_entered"]

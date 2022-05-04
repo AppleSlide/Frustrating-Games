@@ -48,13 +48,15 @@ func _physics_process(_delta):
 
 func ghost():
 	$GhostTimer.start()
-	set_collision_mask_bit(1, false)
+	set_collision_mask_bit(2, false)
 	modulate.a = 0.5
+	$GhostSound.play()
 
 
 func _on_GhostTimer_timeout():
-	set_collision_mask_bit(1, true)
+	set_collision_mask_bit(2, true)
 	modulate.a = 1
+	$GhostSound.play()
 
 
 

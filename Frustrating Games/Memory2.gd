@@ -53,6 +53,7 @@ func _on_WinPlane_body_entered(body):
 	Global.score += score
 	$HUD.update_score(Global.score)
 	$HUD/WinLabel.show()
+	$VictorySound.play()
 	
 
 

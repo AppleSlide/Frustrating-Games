@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Cartoon Weird Noise Short Mouth Popping 02.wav-6f2613d23405af1479dc25671e6f891c.sample"
+
+[deps]
+
+source_file="res://Assets/Cartoon Weird Noise Short Mouth Popping 02.wav"
+dest_files=[ "res://.import/Cartoon Weird Noise Short Mouth Popping 02.wav-6f2613d23405af1479dc25671e6f891c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

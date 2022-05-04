@@ -9,6 +9,7 @@ func _ready():
 	$HUD/StartButton.hide()
 	$HUD/StartTime.hide()
 	$HUD.update_score(Global.score)
+	MusicController.play_music()
 
 func _process(_delta):
 	if $KinematicBody2D/GhostTimer.time_left > 0:
@@ -23,6 +24,8 @@ func _on_CooldownTimer_timeout():
 		cooldown = 5
 		$HUD.update_cooldown(cooldown)
 		$HUD/GhostCheck.text = str("Ready")
+		$ReadySound1.play()
+		$ReadySound2.play()
 
 
 func _on_TutorialTeleport1_body_entered(_body):

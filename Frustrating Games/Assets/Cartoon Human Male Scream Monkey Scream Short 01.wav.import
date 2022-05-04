@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Cartoon Human Male Scream Monkey Scream Short 01.wav-74f35a7895ef0cf8b7e86b724182e6e1.sample"
+
+[deps]
+
+source_file="res://Assets/Cartoon Human Male Scream Monkey Scream Short 01.wav"
+dest_files=[ "res://.import/Cartoon Human Male Scream Monkey Scream Short 01.wav-74f35a7895ef0cf8b7e86b724182e6e1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
